@@ -10,10 +10,13 @@ A temperature monitoring system for forest cabins and off-grid living environmen
 
 RandeChistli (Swiss German for "Forest Temperature Monitor") is a specialized temperature monitoring system developed at [RandeLab](http://www.randelab.ch/) - a forest-geeking and residency place located on Hagen in Switzerland. 
 
+The project continues the heritage of the [Gär Lämpli (發酵小燈)](https://www.hackteria.org/wiki/G%C3%A4r_L%C3%A4mpli) - an open hardware temperature monitoring device originally designed for fermentation projects and creative circuit workshops.
+
 This project provides both visual and audio alerts when temperatures drop below configurable thresholds, making it perfect for:
 - Forest cabins with wood heating
 - Off-grid living environments
 - Workshop temperature monitoring
+- Fermentation monitoring
 - Greenhouse monitoring
 - Any environment where temperature drops need to be detected
 
@@ -28,6 +31,7 @@ This project provides both visual and audio alerts when temperatures drop below 
   - Cold temperatures: Blue shades
   - Medium temperatures: Green shades
   - High temperatures: Red/Yellow shades
+- **Audio Bootloader Compatible**: Code can be uploaded using audio files (see Gär Lämpli wiki)
 
 ## Hardware Requirements
 
@@ -84,6 +88,10 @@ GND    ------| Ground
 3. Configure your board settings for ATtiny85
 4. Upload to your device
 
+### Audio Bootloader Method
+
+If your device is configured with the [NEO Coconut Audio Bootloader](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki), you can upload code using audio files. This method was used in the original Gär Lämpli project.
+
 ## Configuration
 
 The main parameters can be adjusted in the code:
@@ -101,11 +109,45 @@ The main parameters can be adjusted in the code:
 #define warnAlarm     2      // How often it beeps when below warnTemp
 ```
 
+## Project History and Related Works
+
+### Gär Lämpli - 發酵小燈
+
+The RandeChistli builds upon the [Gär Lämpli](https://www.hackteria.org/wiki/G%C3%A4r_L%C3%A4mpli) (Fermentation Lamp) project, which was originally designed for monitoring fermentation temperatures. The project has several international editions including:
+
+- **Hamamatsu Edition**: Created during workshops at [Take-Space / Fabalab Hamamatsu](http://www.take-space.com/) in Japan
+- **Taipei Edition (起酵燈仔)**: Developed for workshops in Taiwan
+- **Unagi Version**: A specialized version with custom PCB design
+
+### Hardware Design
+
+The original Gär Lämpli hardware designs include:
+
+- PCB designs created in DIY-CAD workshops
+- Gerber files and BOM available at [Kitspace.org](https://kitspace.org/boards/github.com/genericlab/unagi_gar-lampli/)
+- Custom enclosures designed in OpenSCAD:
+  - [OpenSCAD file](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/blob/master/boards/DIMI-8/Unagi_chistli.scad)
+  - [SVG files for laser cutting](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/blob/master/boards/DIMI-8/Unagi_chistli_final.svg)
+
+### NEO Coconut Platform
+
+The project is powered by the [NEO Coconut platform](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki), which provides:
+
+- Audio bootloader for programming via sound
+- Common hardware framework for creative electronic projects
+- Support for various sensors and outputs
+
 ## About RandeLab
 
 RandeLab is a creative forest-geeking space and residency located in Switzerland. Known as the "Center for Alternative Coconut Research", it provides a natural environment for technology experimentation and creative projects. 
 
 Visit [www.randelab.ch](http://www.randelab.ch/) to learn more about their projects and initiatives.
+
+## Community & Resources
+
+- [Hackteria Wiki](https://www.hackteria.org/): Community platform for open source biological art projects
+- [GOSH Forum](https://forum.openhardware.science/t/diy-cad-creative-circuit-board-design-tool-for-gar-lampli/322/2): Discussions on the Open Source Hardware aspects of the project
+- [8BitMixtape NEO Wiki](https://github.com/8BitMixtape/8Bit-Mixtape-NEO/wiki): Documentation for the underlying platform
 
 ## License
 
@@ -113,4 +155,4 @@ Open source hardware project - free to use, modify and distribute with attributi
 
 ## Credits
 
-Developed by Marc Dusseiller (dusjagr) at RandeLab.
+Developed by Marc Dusseiller (dusjagr) at RandeLab, building upon the Gär Lämpli project and NEO Coconut platform created by the global open hardware community.
